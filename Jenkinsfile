@@ -22,9 +22,9 @@ pipeline {
 
             steps {
                 // sh 'sudo apt install maven'
-                terraform init
-                terraform plan
-                terraform apply -auto-approve
+                sh 'terraform init'
+                sh 'terraform plan'
+                sh 'terraform apply -auto-approve'
 
             }
         }
