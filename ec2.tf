@@ -60,6 +60,20 @@ resource "aws_instance" "web" {
   }
 }
 
+resource "aws_instance" "backend" {
+
+  ami           = "ami-0d058fe428540cd89"
+  instance_type = "t2.micro"
+  subnet_id     = aws_subnet.public_a.id
+
+  key_name               = aws_key_pair.dev.key_name
+  vpc_security_group_ids = [aws_security_group.allow_ssh.id]
+
+  tags = {
+    Name = "backend-01"
+  }
+}
+
 # tạo ssh keypair
 
 resource "aws_key_pair" "dev" {
