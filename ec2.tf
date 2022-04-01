@@ -108,7 +108,3 @@ resource "aws_security_group" "allow_ssh" {
 output "ec2_instance_public_ips" {
   value = aws_instance.web.*.public_ip
 }
-# in ra public ip của ec2 instance
-output "ec2_instance_public_ips" {
-  value = aws_instance.backend.*.public_ip
-}
